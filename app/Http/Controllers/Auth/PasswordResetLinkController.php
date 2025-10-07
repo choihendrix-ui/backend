@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\View\View;
 
 class PasswordResetLinkController extends Controller
 {
@@ -20,6 +21,9 @@ class PasswordResetLinkController extends Controller
         return Inertia::render('Auth/ForgotPassword', [
             'status' => session('status'),
         ]);
+    public function create(): View
+    {
+        return view('auth.forgot-password');
     }
 
     /**
@@ -31,6 +35,7 @@ class PasswordResetLinkController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
+            'email' => ['required', 'email'],
         ]);
 
         // We will send the password reset link to this user. Once we have attempted
@@ -47,5 +52,9 @@ class PasswordResetLinkController extends Controller
         throw ValidationException::withMessages([
             'email' => [trans($status)],
         ]);
+        return $status == Password::RESET_LINK_SENT
+                    ? back()->with('status', __($status))
+                    : back()->withInput($request->only('email'))
+                        ->withErrors(['email' => __($status)]);
     }
 }

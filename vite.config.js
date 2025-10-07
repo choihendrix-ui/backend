@@ -9,5 +9,8 @@ export default defineConfig({
             refresh: true,
         }),
         react(),
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
     ],
 });

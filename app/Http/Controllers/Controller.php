@@ -12,3 +12,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
 
+abstract class Controller
+{
+    //
+}

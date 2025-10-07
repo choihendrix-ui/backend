@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('current_hash');
             $table->integer('nonce'); // <-- This was missing
             $table->timestamp('timestamp');
+            $table->text('data')->nullable(); // ✅ Added column
             $table->timestamps();
         });
     }

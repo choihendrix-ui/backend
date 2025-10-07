@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "content-hash": "0c1fff7f7fcc4b413be1e6950ac09716",
+    "content-hash": "bdc6d92507d397adf1c269ed49ec424d",
     "packages": [
         {
             "name": "brick/math",
@@ -5951,6 +5952,7 @@
             "time": "2025-09-11T10:12:26+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "tightenco/ziggy",
             "version": "v2.6.0",
             "source": {
@@ -6021,6 +6023,8 @@
             "time": "2025-09-15T00:00:26+00:00"
         },
         {
+=======
+>>>>>>> 6aeae1c (Saved progress for today)
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "v2.3.0",
             "source": {
