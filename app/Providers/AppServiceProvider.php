@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 nano app/Providers/RouteServiceProvider.phpclass AppServiceProvider extends ServiceProvider { nano 
 bootstrap/app.php /** nano composer.json * Register any application services. nano composer.lock */ nano 
 database/migrations/2025_10_07_183207_create_blocks_table.php public function register(): void
@@ -17,6 +18,21 @@ nano tailwind.config.js
 nano tests/Feature/Auth/PasswordUpdateTest.php
 nano tests/Feature/ProfileTest.php
 nano vite.config.js
+=======
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Vite;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
     {
         //
     }
@@ -27,6 +43,9 @@ nano vite.config.js
     public function boot(): void
     {
         Vite::prefetch(concurrency: 3);
+<<<<<<< HEAD
         //
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
     }
 }

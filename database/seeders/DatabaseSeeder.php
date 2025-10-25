@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
+<<<<<<< HEAD
     public function run(): void
     {
         $this->call(GenesisBlockSeeder::class);
@@ -17,13 +16,11 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $this->call(GenesisBlockSeeder::class);
     }
 }
+

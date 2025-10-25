@@ -46,7 +46,10 @@ class PasswordUpdateTest extends TestCase
 
         $response
             ->assertSessionHasErrors('current_password')
+<<<<<<< HEAD
             ->assertSessionHasErrorsIn('updatePassword', 'current_password')
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
             ->assertRedirect('/profile');
     }
 }

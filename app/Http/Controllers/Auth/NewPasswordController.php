@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,7 +13,10 @@ use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
+<<<<<<< HEAD
 use Illuminate\View\View;
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
 
 class NewPasswordController extends Controller
 {
@@ -22,14 +24,20 @@ class NewPasswordController extends Controller
      * Display the password reset view.
      */
     public function create(Request $request): Response
+<<<<<<< HEAD
     {
         return Inertia::render('Auth/ResetPassword', [
             'email' => $request->email,
             'token' => $request->route('token'),
         ]);
     public function create(Request $request): View
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
     {
-        return view('auth.reset-password', ['request' => $request]);
+        return Inertia::render('Auth/ResetPassword', [
+            'email' => $request->email,
+            'token' => $request->route('token'),
+        ]);
     }
 
     /**
@@ -42,8 +50,11 @@ class NewPasswordController extends Controller
         $request->validate([
             'token' => 'required',
             'email' => 'required|email',
+<<<<<<< HEAD
             'token' => ['required'],
             'email' => ['required', 'email'],
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -53,7 +64,10 @@ class NewPasswordController extends Controller
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user) use ($request) {
+<<<<<<< HEAD
             function (User $user) use ($request) {
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
                 $user->forceFill([
                     'password' => Hash::make($request->password),
                     'remember_token' => Str::random(60),
@@ -73,9 +87,12 @@ class NewPasswordController extends Controller
         throw ValidationException::withMessages([
             'email' => [trans($status)],
         ]);
+<<<<<<< HEAD
         return $status == Password::PASSWORD_RESET
                     ? redirect()->route('login')->with('status', __($status))
                     : back()->withInput($request->only('email'))
                         ->withErrors(['email' => __($status)]);
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 
 class UserController extends Controller
 {
@@ -13,42 +14,17 @@ class UserController extends Controller
             'message' => 'Welcome to the User Dashboard!'
         ]);
 use App\Models\User;
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
 
 class UserController extends Controller
 {
-    // Get all users
-    public function index()
+    public function dashboard()
     {
-        return response()->json(User::all());
-    }
-
-    // Create a new user
-    public function store(Request $request)
-    {
-        $user = User::create($request->all());
-        return response()->json($user, 201);
-    }
-
-    // Get a single user by ID
-    public function show($id)
-    {
-        $user = User::findOrFail($id);
-        return response()->json($user);
-    }
-
-    // Update a user
-    public function update(Request $request, $id)
-    {
-        $user = User::findOrFail($id);
-        $user->update($request->all());
-        return response()->json($user);
-    }
-
-    // Delete a user
-    public function destroy($id)
-    {
-        User::destroy($id);
-        return response()->json(null, 204);
+        return response()->json([
+            'role' => 'user',
+            'message' => 'Welcome to the User Dashboard!'
+        ]);
     }
 }
 

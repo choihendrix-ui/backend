@@ -5,7 +5,10 @@
         "This file is @generated automatically"
     ],
     "content-hash": "0c1fff7f7fcc4b413be1e6950ac09716",
+<<<<<<< HEAD
     "content-hash": "bdc6d92507d397adf1c269ed49ec424d",
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
     "packages": [
         {
             "name": "brick/math",
@@ -5953,6 +5956,9 @@
         },
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
             "name": "tightenco/ziggy",
             "version": "v2.6.0",
             "source": {
@@ -6023,8 +6029,11 @@
             "time": "2025-09-15T00:00:26+00:00"
         },
         {
+<<<<<<< HEAD
 =======
 >>>>>>> 6aeae1c (Saved progress for today)
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "v2.3.0",
             "source": {

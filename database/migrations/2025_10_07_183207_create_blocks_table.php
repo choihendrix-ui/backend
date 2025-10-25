@@ -15,7 +15,10 @@ return new class extends Migration
             $table->string('current_hash');
             $table->integer('nonce'); // <-- This was missing
             $table->timestamp('timestamp');
+<<<<<<< HEAD
             $table->text('data')->nullable(); // ✅ Added column
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
             $table->timestamps();
         });
     }

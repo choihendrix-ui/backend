@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,38 +18,51 @@ public function company()
 
     use HasApiTokens, HasFactory, Notifiable;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+public function company()
+{
+    return $this->belongsTo(Company::class);
+}
+
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
+<<<<<<< HEAD
      * @var list<string>
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
      */
     protected $fillable = [
         'name',
         'email',
         'password',
         'role',
+<<<<<<< HEAD
     ];
 
     /**
      * The attributes that should be hidden for arrays and JSON.
      *
      * @var array<int, string>
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes that should be hidden for arrays and JSON.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $hidden = [
         'password',
@@ -57,6 +71,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be cast to native types.
+<<<<<<< HEAD
      *
      * @var array<string, string>
      */
@@ -67,14 +82,14 @@ class User extends Authenticatable
 }
 
      * Get the attributes that should be cast.
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
 }
+

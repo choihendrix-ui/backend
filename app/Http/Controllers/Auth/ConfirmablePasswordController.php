@@ -7,15 +7,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+<<<<<<< HEAD
+=======
+use Inertia\Inertia;
+use Inertia\Response;
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
 
 class ConfirmablePasswordController extends Controller
 {
     /**
      * Show the confirm password view.
      */
+<<<<<<< HEAD
     public function showConfirmForm()
+=======
+    public function show(): Response
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
     {
-        return view('auth.confirm-password');
+        return Inertia::render('Auth/ConfirmPassword');
     }
 
     /**

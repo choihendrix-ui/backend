@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
+<<<<<<< HEAD
 use Illuminate\View\View;
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
 
 class PasswordResetLinkController extends Controller
 {
@@ -17,13 +20,18 @@ class PasswordResetLinkController extends Controller
      * Display the password reset link request view.
      */
     public function create(): Response
+<<<<<<< HEAD
     {
         return Inertia::render('Auth/ForgotPassword', [
             'status' => session('status'),
         ]);
     public function create(): View
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
     {
-        return view('auth.forgot-password');
+        return Inertia::render('Auth/ForgotPassword', [
+            'status' => session('status'),
+        ]);
     }
 
     /**
@@ -35,7 +43,10 @@ class PasswordResetLinkController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
+<<<<<<< HEAD
             'email' => ['required', 'email'],
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
         ]);
 
         // We will send the password reset link to this user. Once we have attempted
@@ -52,9 +63,12 @@ class PasswordResetLinkController extends Controller
         throw ValidationException::withMessages([
             'email' => [trans($status)],
         ]);
+<<<<<<< HEAD
         return $status == Password::RESET_LINK_SENT
                     ? back()->with('status', __($status))
                     : back()->withInput($request->only('email'))
                         ->withErrors(['email' => __($status)]);
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
     }
 }

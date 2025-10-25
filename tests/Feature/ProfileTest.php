@@ -92,7 +92,10 @@ class ProfileTest extends TestCase
 
         $response
             ->assertSessionHasErrors('password')
+<<<<<<< HEAD
             ->assertSessionHasErrorsIn('userDeletion', 'password')
+=======
+>>>>>>> f8ef78f (Initial working Laravel Docker setup)
             ->assertRedirect('/profile');
 
         $this->assertNotNull($user->fresh());
