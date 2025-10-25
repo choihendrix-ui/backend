@@ -13,7 +13,8 @@ return new class extends Migration
             $table->integer('index_no');
             $table->string('previous_hash');
             $table->string('current_hash');
-            $table->text('data')->nullable(); // ✅ Added column
+            $table->integer('nonce'); // <-- This was missing
+            $table->timestamp('timestamp');
             $table->timestamps();
         });
     }

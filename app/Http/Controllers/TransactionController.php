@@ -2,29 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Transaction;
+use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    // Get all transactions
-    public function index()
+    public function createTransaction(Request $request)
     {
-        return response()->json(Transaction::all());
-    }
-
-    // Create a new transaction
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
+        $request->validate([
             'sender' => 'required|string',
             'receiver' => 'required|string',
             'amount' => 'required|numeric|min:0',
         ]);
 
-        $transaction = Transaction::create($validated);
+        $transaction = Transaction::create([
+            'sender' => $request->sender,
+            'receiver' => $request->receiver,
+            'amount' => $request->amount,
+            'timestamp' => now(),
+            'status' => 'pending',
+        ]);
 
-        return response()->json($transaction, 201);
+        return response()->json([
+            'message' => 'Transaction created successfully',
+            'data' => $transaction
+        ], 201);
+    }
+
+    public function getPendingTransactions()
+    {
+        $transactions = Transaction::where('status', 'pending')->get();
+        return response()->json($transactions);
     }
 }
 
